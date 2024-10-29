@@ -28,7 +28,7 @@ export async function GET() {
       .sort((a: IRepo, b: IRepo) => b.stargazers_count - a.stargazers_count)
       .filter(
         (repo: IRepo) => repo.owner.login === process.env.GITHUB_USERNAME!
-      );
+      ).slice(0, 5);
 
     return NextResponse.json({ status: true, data: repos });
   } catch (error: any) {
