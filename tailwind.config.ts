@@ -8,9 +8,23 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          sm: "2rem",
+        },
+        screens: {
+          "2xl": "1400px",
+        },
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#0a0a0a",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
