@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowUpRightIcon, LinkedInIcon } from "@/components/icons";
+import { ChatBubbleIcon, LinkedInIcon } from "@/components/icons";
+import { Project } from "@/components/project";
 import { DotPattern } from "@/components/dot-pattern";
 import { cn } from "@/lib/cn";
 
@@ -32,6 +33,21 @@ export default function Home() {
           </Link>
           .
         </p>
+
+
+        {/* TODO: This section will be rewritten soon to automatically fetch projects from GitHub */}
+        <section className="mt-12 space-y-4 bg-background z-50 relative">
+          <Project
+            title="drive-backup"
+            url="https://github.com/OsmanTunahan/drive-backup"
+            icon={<ChatBubbleIcon className="size-4" />}
+            description={
+              <>
+                Automatically upload your backups to Google Drive with using this small tool.
+              </>
+            }
+          />
+        </section>
 
         <DotPattern
           className={cn(
