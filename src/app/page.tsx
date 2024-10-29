@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRightIcon, LinkedInIcon } from "@/components/icons";
+import { DotPattern } from "@/components/dot-pattern";
 import { cn } from "@/lib/cn";
 
 export default function Home() {
@@ -31,6 +32,12 @@ export default function Home() {
           </Link>
           .
         </p>
+
+        <DotPattern
+          className={cn(
+            "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)] md:mt-36 mt-24"
+          )}
+        />
       </main>
     </>
   );
