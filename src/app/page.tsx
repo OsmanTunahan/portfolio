@@ -1,10 +1,25 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ChatBubbleIcon, LinkedInIcon } from "@/components/icons";
 import { Project } from "@/components/project";
 import { DotPattern } from "@/components/dot-pattern";
 import { cn } from "@/lib/cn";
 
 export default function Home() {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/github")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status) {
+          setProjects(data.data);
+        }
+      });
+  }, []);
+
   return (
     <>
       <main className="mx-auto md:pt-24 pt-16 max-w-screen-sm container relative">
@@ -34,19 +49,15 @@ export default function Home() {
           .
         </p>
 
-
-        {/* TODO: This section will be rewritten soon to automatically fetch projects from GitHub */}
         <section className="mt-12 space-y-4 bg-background z-50 relative">
-          <Project
-            title="drive-backup"
-            url="https://github.com/OsmanTunahan/drive-backup"
-            icon={<ChatBubbleIcon className="size-4" />}
-            description={
-              <>
-                Automatically upload your backups to Google Drive with using this small tool.
-              </>
-            }
-          />
+          {projects.length > 0 && projects.map((project: any) => (
+            <Project 
+              title={project.name}
+              url={project.html_url}
+              icon={<ChatBubbleIcon className="size-4" />}
+              description={project.description}
+            />
+          ))}
         </section>
 
         <DotPattern
