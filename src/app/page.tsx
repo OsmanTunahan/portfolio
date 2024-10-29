@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRightIcon, LinkedInIcon } from "@/components/icons";
+import { cn } from "@/lib/cn";
 
 export default function Home() {
   return (
