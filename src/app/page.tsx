@@ -16,6 +16,20 @@ export default function Home() {
             <LinkedInIcon className="size-4" />
           </Link>
         </div>
+
+        <p className="mt-6">
+          Hello, I&apos;m a cyber security expert based in the Turkey. I am also
+          a full stack developer. I create projects in languages like next.js,
+          python, etc...{" "}
+          <Link
+            href="https://github.com/OsmanTunahan"
+            target="_blank"
+            className="underline"
+          >
+            GitHub
+          </Link>
+          .
+        </p>
       </main>
     </>
   );
