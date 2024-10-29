@@ -9,6 +9,7 @@ interface IRepo {
   };
   description: string;
   html_url: string;
+  stargazers_count: number;
 }
 
 export async function GET() {
@@ -23,7 +24,11 @@ export async function GET() {
     });
 
     let repos = await response.json();
-    repos = repos.filter((repo: IRepo) => repo.owner.login === process.env.GITHUB_USERNAME!);
+    repos = repos
+      .sort((a: IRepo, b: IRepo) => b.stargazers_count - a.stargazers_count)
+      .filter(
+        (repo: IRepo) => repo.owner.login === process.env.GITHUB_USERNAME!
+      );
 
     return NextResponse.json({ status: true, data: repos });
   } catch (error: any) {
