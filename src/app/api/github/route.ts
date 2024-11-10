@@ -31,7 +31,7 @@ export async function GET() {
       )
       .slice(0, 5);
 
-    let getUserStats = await GET_STATS();
+    const getUserStats = await GET_STATS();
 
     return NextResponse.json({
       status: true,
