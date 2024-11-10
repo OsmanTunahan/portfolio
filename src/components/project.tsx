@@ -6,19 +6,22 @@ type Props = {
   url: string;
   icon: React.ReactNode;
   description: React.ReactNode;
+  username: string;
 };
 
-export function Project(props: Props) {
+export function Project({ title, url, icon, description, username }: Props) {
   return (
     <div className="border border-zinc-900 p-4 rounded-md bg-background">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
-          {props.icon}
-          <h2 className="text-white font-medium">{props.title}</h2>
+          {icon}
+          <h2 className="text-white font-medium">
+            <span className="text-zinc-400">{username}/</span>{title}
+          </h2>
         </div>
 
         <Link
-          href={props.url}
+          href={url}
           target="_blank"
           className="text-zinc-200 hover:text-white transition-colors"
         >
@@ -26,7 +29,7 @@ export function Project(props: Props) {
         </Link>
       </div>
 
-      <p className="text-zinc-300 mt-3">{props.description}</p>
+      <p className="text-zinc-300 mt-3">{description}</p>
     </div>
   );
 }

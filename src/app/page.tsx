@@ -67,6 +67,7 @@ export default function Home() {
             projects.map((project: any) => (
               <Project
                 key={project.id}
+                username={project.owner.login}
                 title={project.name}
                 url={project.html_url}
                 icon={<ChatBubbleIcon className="size-4" />}
