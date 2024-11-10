@@ -2,7 +2,7 @@
  Portfolio 💫
 </h1>
 
-![Demo](demo/demo.png)
+![Demo](./demo.png)
 
 # Welcome to My Portfolio Project! 🙌
 [This Website](https://osmantunahan.com.tr) is a portfolio project where you can showcase your projects, skills and more.
