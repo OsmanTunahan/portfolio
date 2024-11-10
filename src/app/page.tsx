@@ -50,7 +50,9 @@ export default function Home() {
 
         {stats && (
           <div className="mt-8 p-4 border border-zinc-900 rounded-md bg-background">
-            <h2 className="text-white font-medium">My GitHub Stats</h2>
+            <h2 className="text-white font-medium flex items-center gap-2">
+              <GitHubIcon /> My GitHub Stats
+            </h2>
             <ul className="mt-4 grid grid-cols-2 gap-4 text-zinc-300">
               <li>Followers: {stats.followers}</li>
               <li>Commits: {stats.totalCommits}</li>
