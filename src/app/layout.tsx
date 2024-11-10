@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
+import { Footer } from "@/components/footer";
 import "@/assets/globals.css";
 
 export const metadata: Metadata = {
@@ -39,6 +40,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${GeistSans.className} bg-background text-zinc-100`}>
         {children}
+        <Footer />
       </body>
     </html>
   );
