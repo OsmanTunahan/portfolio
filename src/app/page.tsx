@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { ChatBubbleIcon, LinkedInIcon, GitHubIcon } from "@/components/icons";
 import { Project } from "@/components/project";
 import { DotPattern } from "@/components/dot-pattern";
-import { cn } from "@/lib/cn";
+import { cn } from "@/lib/utils";
 
 interface GitHubStats {
   followers: number;
