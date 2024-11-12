@@ -1,16 +1,5 @@
 import { NextResponse } from "next/server";
-
-interface IRepo {
-  id: number;
-  name: string;
-  full_name: string;
-  owner: {
-    login: string;
-  };
-  description: string;
-  html_url: string;
-  stargazers_count: number;
-}
+import { IRepository, IGitHubStats } from "@/lib/types/apis";
 
 export async function GET() {
   const username = process.env.GITHUB_USERNAME!;
@@ -39,15 +28,18 @@ export async function GET() {
     let repos = await reposResponse.json();
 
     const totalStars = repos.reduce(
-      (acc: number, repo: IRepo) => acc + repo.stargazers_count,
+      (acc: number, repo: IRepository) => acc + repo.stargazers_count,
       0
     );
-    
+
     repos = repos
-      .sort((a: IRepo, b: IRepo) => b.stargazers_count - a.stargazers_count)
+      .sort(
+        (a: IRepository, b: IRepository) =>
+          b.stargazers_count - a.stargazers_count
+      )
       .slice(0, 5);
 
-    const stats = {
+    const stats: IGitHubStats = {
       followers: user.followers,
       totalCommits: commits.total_count,
       totalPRs: prs.total_count,

@@ -5,18 +5,12 @@ import { useEffect, useState } from "react";
 import { ChatBubbleIcon, LinkedInIcon, GitHubIcon } from "@/components/icons";
 import { Project } from "@/components/project";
 import { DotPattern } from "@/components/dot-pattern";
+import { IGitHubStats } from "@/lib/types/apis";
 import { cn } from "@/lib/utils";
-
-interface GitHubStats {
-  followers: number;
-  totalCommits: number;
-  totalPRs: number;
-  totalStars: number;
-}
 
 export default function Home() {
   const [projects, setProjects] = useState([]);
-  const [stats, setStats] = useState<GitHubStats | null>(null);
+  const [stats, setStats] = useState<IGitHubStats | null>(null);
 
   useEffect(() => {
     fetch("/api/github")

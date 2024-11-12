@@ -1,15 +1,5 @@
-import { Schema, Types, models, model } from "mongoose";
-
-export interface IUser {
-  _id: Types.ObjectId;
-  username: string;
-  email: string;
-  password: string;
-  role: string;
-  status: boolean;
-  createdAt: Date;
-  avatar?: string;
-}
+import { Schema, models, model } from "mongoose";
+import { IUser } from "../types/models";
 
 const userSchema = new Schema<IUser>({
   username: {
@@ -39,7 +29,7 @@ const userSchema = new Schema<IUser>({
   },
   avatar: {
     type: String,
-  }
+  },
 });
 
 const User = models.User || model<IUser>("User", userSchema);

@@ -1,22 +1,22 @@
 import Link from "next/link";
 import { GitHubIcon } from "./icons";
+import { ProjectProps } from "@/lib/types/components";
 
-type Props = {
-  title: string;
-  url: string;
-  icon: React.ReactNode;
-  description: React.ReactNode;
-  username: string;
-};
-
-export function Project({ title, url, icon, description, username }: Props) {
+export function Project({
+  title,
+  url,
+  icon,
+  description,
+  username,
+}: ProjectProps) {
   return (
     <div className="border border-zinc-900 p-4 rounded-md bg-background">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
           {icon}
           <h2 className="text-white font-medium">
-            <span className="text-zinc-400">{username}/</span>{title}
+            <span className="text-zinc-400">{username}/</span>
+            {title}
           </h2>
         </div>
 
