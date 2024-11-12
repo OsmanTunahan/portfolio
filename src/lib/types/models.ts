@@ -5,7 +5,7 @@ import { Types } from "mongoose";
  * @interface
  */
 export interface IUser {
-  _id: Types.ObjectId;
+  _id?: Types.ObjectId;
   username: string;
   email: string;
   password: string;
