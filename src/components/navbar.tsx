@@ -3,6 +3,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 
 export function Navbar() {
   const { data: session } = useSession();
@@ -20,13 +21,15 @@ export function Navbar() {
           <div className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-2"
-            >
-              <img
-                src={session.user?.image!}
-                alt="Profile"
-                className="w-8 h-8 rounded-full border border-zinc-900"
-              />
+                className="flex items-center gap-2"
+              >
+                <Image
+                  src={session.user?.image!}
+                  alt="Profile"
+                  width={32}
+                  height={32}
+                  className="rounded-full border border-zinc-900"
+                />
               <span className="text-white">{session.user?.name}</span>
             </button>
             {dropdownOpen && (
@@ -35,7 +38,7 @@ export function Navbar() {
                   Profile
                 </Link>
                 {/* TODO: Add database query */}
-                {session.user?.name === "Osman Tunahan ARIKAN" && (
+                {session?.user?.name === "Osman Tunahan ARIKAN" && (
                   <Link href="/admin" className="block px-4 py-2 text-zinc-300 hover:bg-zinc-800">
                     Admin Panel
                   </Link>
