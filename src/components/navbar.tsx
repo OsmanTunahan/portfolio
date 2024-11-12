@@ -38,7 +38,7 @@ export function Navbar() {
                   Profile
                 </Link>
                 {/* TODO: Add database query */}
-                {session?.user?.name === "Osman Tunahan ARIKAN" && (
+                {session?.user?.name == "Osman Tunahan ARIKAN" && (
                   <Link href="/admin" className="block px-4 py-2 text-zinc-300 hover:bg-zinc-800">
                     Admin Panel
                   </Link>
