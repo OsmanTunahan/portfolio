@@ -11,7 +11,7 @@ const options = { dbName: "Portfolio" };
 let clientPromise: Promise<Mongoose>;
 
 if (process.env.NODE_ENV === "development") {
-  let globalMongo = global as typeof globalThis & {
+  const globalMongo = global as typeof globalThis & {
     isConnected?: Promise<Mongoose>;
   };
 
