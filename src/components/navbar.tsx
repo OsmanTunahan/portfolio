@@ -24,7 +24,7 @@ export function Navbar() {
                 className="flex items-center gap-2"
               >
                 <Image
-                  src={session.user?.image!}
+                  src={session.user?.image || "https://avatars.githubusercontent.com/u/154083945?v=4"}
                   alt="Profile"
                   width={32}
                   height={32}
