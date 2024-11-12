@@ -11,10 +11,6 @@ const userSchema = new Schema<IUser>({
     required: [true, "Email cannot be empty"],
     match: [/^\S+@\S+\.\S+$/, "Please enter a valid email address"],
   },
-  password: {
-    type: String,
-    required: [true, "Password cannot be empty"],
-  },
   role: {
     type: String,
     default: "user",
