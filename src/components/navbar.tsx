@@ -10,7 +10,7 @@ export function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <nav className="flex justify-between items-center p-4 border-b border-zinc-900 bg-background">
+    <nav className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 border-b border-zinc-900 bg-background">
       <div className="flex items-center">
         <Link href="/" className="text-white text-xl">
           (-_-)
