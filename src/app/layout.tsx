@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { Footer } from "@/components/footer";
-import { GetSessionProvider } from "@/components/sessionProvider";
-import { Navbar } from "@/components/navbar";
 import "@/assets/globals.css";
 
 export const metadata: Metadata = {
@@ -53,14 +51,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <GetSessionProvider>
-      <html lang="en">
-        <body className={`${GeistSans.className} bg-background text-zinc-100`}>
-          <Navbar />
-          {children}
-          <Footer />
-        </body>
-      </html>
-    </GetSessionProvider>
+    <html lang="en">
+      <body className={`${GeistSans.className} bg-background text-zinc-100`}>
+        {children}
+        <Footer />
+      </body>
+    </html>
   );
 }
